@@ -1,0 +1,5 @@
+Failed to pull image "myrepo/java-app:v14"
+
+Back-off pulling image "myrepo/java-app:v14"
+
+Error: ImagePullBackOff

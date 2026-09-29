@@ -1,0 +1,58 @@
+[
+  {
+    "id": "INC-001",
+    "system": "Kubernetes",
+    "error": "ImagePullBackOff Failed to pull image container image not found",
+    "root_cause": "Incorrect Docker image repository or image tag configured in the Kubernetes deployment.",
+    "resolution": "Verified the image in the container registry, corrected the image repository and tag, and restarted the deployment."
+  },
+  {
+    "id": "INC-002",
+    "system": "Kubernetes",
+    "error": "CrashLoopBackOff container repeatedly restarting application failed during startup",
+    "root_cause": "The application container was crashing during startup because of incorrect configuration or missing environment variables.",
+    "resolution": "Checked kubectl logs, corrected the application environment variables and redeployed the workload."
+  },
+  {
+    "id": "INC-003",
+    "system": "GitHub Actions",
+    "error": "Docker push denied requested access to the resource is denied authentication failed",
+    "root_cause": "The CI pipeline did not have valid container registry credentials.",
+    "resolution": "Updated the registry credentials stored in GitHub Secrets and reran the pipeline."
+  },
+  {
+    "id": "INC-004",
+    "system": "ArgoCD",
+    "error": "ArgoCD application OutOfSync deployment image tag not updated",
+    "root_cause": "The Kubernetes manifest contained an outdated container image tag.",
+    "resolution": "Updated the image tag in the Helm values file and synchronized the ArgoCD application."
+  },
+  {
+    "id": "INC-005",
+    "system": "AWS IAM",
+    "error": "AccessDenied User is not authorized to perform operation insufficient IAM permissions",
+    "root_cause": "The IAM role attached to the workload did not contain the required permissions.",
+    "resolution": "Identified the denied AWS action, updated the IAM policy with the required permission and retried the operation."
+  },
+  {
+    "id": "INC-006",
+    "system": "Jenkins",
+    "error": "Jenkins pipeline build failed command not found docker permission denied",
+    "root_cause": "The Jenkins execution environment did not have access to the required Docker executable or permissions.",
+    "resolution": "Configured Docker on the Jenkins agent, granted the required permissions and restarted the pipeline."
+  },
+  {
+    "id": "INC-007",
+    "system": "Kubernetes",
+    "error": "Pending pod insufficient cpu insufficient memory failed scheduling",
+    "root_cause": "The Kubernetes cluster did not have enough available resources to satisfy the pod resource requests.",
+    "resolution": "Reviewed pod requests and limits and increased cluster capacity before rescheduling the workload."
+  },
+  {
+    "id": "INC-008",
+    "system": "AWS Systems Manager",
+    "error": "SSM managed instance not available instance not showing in systems manager",
+    "root_cause": "The EC2 instance did not have the required Systems Manager IAM permissions or working SSM agent.",
+    "resolution": "Attached AmazonSSMManagedInstanceCore to the EC2 IAM role, verified the SSM agent and re-registered the instance."
+  }
+]
